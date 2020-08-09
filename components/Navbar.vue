@@ -18,10 +18,10 @@
           <ul class="navbar-nav ml-auto">
 
           <li class="nav-item">
-            <nuxt-link class="nav-link" to="/">Login</nuxt-link>
+            <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link class="nav-link" to="/">Register</nuxt-link>
+            <nuxt-link class="nav-link" to="/register">Register</nuxt-link>
           </li>
         </ul>
       </div>
