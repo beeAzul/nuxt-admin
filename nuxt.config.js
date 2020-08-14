@@ -81,12 +81,31 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/login', method: 'post', propertyName: 'meta.token' /*It is schema of the returned response given by API*/ },
+          user: { url: '/api/user', method: 'get', propertyName: 'data' /*Schema of user data given by API*/},
+          logout: { url: '/api/logout', method: 'post' }
+        },
+        // tokenRequired: true,
+        // tokenType: 'bearer',
+        // globalToken: true,
+        // autoFetchUser: true
+      }
+      // We can use other strategies like social login
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    baseURL: "http://localhost:3000"
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
