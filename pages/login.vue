@@ -38,7 +38,7 @@
               });
 
               // After login we push the user to the home page
-              // this.$router.push('/')
+              this.$router.push('/')
           }
       }
   }

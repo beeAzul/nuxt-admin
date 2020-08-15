@@ -31,7 +31,7 @@
               <a class="nav-link">{{user.name}}</a>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/logout">Logout</nuxt-link>
+              <a @click.prevent="logout" class="nav-link">Logout</a>
             </li>
           </ul>
         </template>
@@ -43,5 +43,13 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+      methods: {
+          async logout() {
+             await this.$auth.logout(); // this is defined in nuxt.config.js
+
+             this.$router.push('/')
+          }
+      }
+  }
 </script>

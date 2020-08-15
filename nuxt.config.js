@@ -88,9 +88,9 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/api/login', method: 'post', propertyName: 'meta.token' /*It is schema of the returned response given by API*/ },
-          user: { url: '/api/user', method: 'get', propertyName: 'data' /*Schema of user data given by API*/},
-          logout: { url: '/api/logout', method: 'post' }
+          login: { url: '/login', method: 'post', propertyName: 'meta.token' /*It is schema of the returned response given by API*/ },
+          user: { url: '/user', method: 'get', propertyName: 'data' /*Schema of user data given by API*/},
+          logout: { url: '/logout', method: 'post' }
         },
         // tokenRequired: true,
         // tokenType: 'bearer',
@@ -105,7 +105,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: "http://nuxt-laravel-api.test"
+    baseURL: "http://nuxt-laravel-api.test/api"
   },
   /*
   ** Build configuration
