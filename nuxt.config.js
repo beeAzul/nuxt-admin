@@ -64,6 +64,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    './plugins/mixins/user.js'
   ],
   /*
   ** Auto import components
@@ -104,7 +105,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: "http://localhost:3000"
+    baseURL: "http://nuxt-laravel-api.test"
   },
   /*
   ** Build configuration

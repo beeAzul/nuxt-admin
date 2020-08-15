@@ -111,3 +111,37 @@ auth: {
 
 /!\ <span style="color:red">When adding **auth-module** to a new Nuxt project ensure you have activated the Vuex store
 **Activate Vuex** by simply adding a new file in **store** folder. In our case we created **index.js** file in **store** folder.</span>
+
+#### 7 - Use the store to get data
+'auth-module' store data into the vuex store. We can find a lot of information after a user logs in : 
+<pre>
+// data in store after a user logged in
+{
+    "auth": {
+        "user": {
+            "email":"shilouette@gmail.com",
+            "name":"shilouette",
+            "created_at":"2020-08-14T13:50:30.000000Z"
+        },
+        "loggedIn":true,
+        "strategy":"local",
+        "busy":false,
+        "redirect":"__vue_devtool_undefined__"
+    }
+}
+</pre>
+
+#### 8 - Use Global Mixin to create plugin into the application  
+Mixin is also used to provide a logic globaly to the app. In our case we use it to make a plugin which provide us authentication state from the sore.
+<pre>
+// See inside plugins/mixins folder
+...
+Vue.mixin({
+ ...
+});
+
+// Everywhere in vue file, now we can use
+&lt;template>
+{{authenticated}} or {{user}}
+&lt;/template>
+</pre>
