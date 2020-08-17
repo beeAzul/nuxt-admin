@@ -64,7 +64,9 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    './plugins/mixins/user.js'
+    './plugins/mixins/user.js',
+    './plugins/mixins/validation.js',
+    './plugins/axios.js',
   ],
   /*
   ** Auto import components
@@ -88,9 +90,9 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/login', method: 'post', propertyName: 'meta.token' /*It is schema of the returned response given by API*/ },
-          user: { url: '/user', method: 'get', propertyName: 'data' /*Schema of user data given by API*/},
-          logout: { url: '/logout', method: 'post' }
+          login: { url: 'login', method: 'post', propertyName: 'meta.token' /*It is schema of the returned response given by API*/ },
+          user: { url: 'user', method: 'get', propertyName: 'data' /*Schema of user data given by API*/},
+          logout: { url: 'logout', method: 'post' }
         },
         // tokenRequired: true,
         // tokenType: 'bearer',

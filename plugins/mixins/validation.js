@@ -5,17 +5,16 @@ import {mapGetters} from 'vuex';
  * This instance will provide Getter Globaly without having to import it on each file
  * @type {{install(*, *): void}}
  */
-const User = {
+const Validation = {
   install(Vue, options) {
     Vue.mixin({
       computed: {
-        ...mapGetters("auth", {
-            user: "user", // refer to "store/user()"
-            authenticated: "authenticated"
+        ...mapGetters({
+            errors: "validation/errors" // refer to "store/validation"
         })
       }
     });
   }
 };
 
-Vue.use(User);
+Vue.use(Validation);

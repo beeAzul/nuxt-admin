@@ -14,7 +14,6 @@
             <nuxt-link class="nav-link" to="/">Posts</nuxt-link>
           </li>
         </ul>
-
         <template v-if="!authenticated">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">

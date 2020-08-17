@@ -116,9 +116,9 @@ auth: {
 'auth-module' store data into the vuex store. We can find a lot of information after a user logs in : 
 <pre>
 // data in store after a user logged in
-{
     "auth": {
         "user": {
+{
             "email":"shilouette@gmail.com",
             "name":"shilouette",
             "created_at":"2020-08-14T13:50:30.000000Z"
@@ -144,4 +144,10 @@ Vue.mixin({
 &lt;template>
 {{authenticated}} or {{user}}
 &lt;/template>
+</pre>
+
+#### 9 - Handling errors.  
+Errors will be stored in the store. To manage them, we create a store and a plugin named ErrorsHandler to catch axios errors. 
+<pre>
+// see store/validation.js file
 </pre>
