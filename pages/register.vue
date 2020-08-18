@@ -2,6 +2,9 @@
   <div class="container col-md-6 mt-5">
     <h2>Register</h2>
     <br>
+    <div class="alert alert-danger" role="alert" v-if="message">
+      {{message}}
+    </div>
     <form @submit.prevent="register">
       <div class="form-group">
         <label>Full name</label>
@@ -38,20 +41,25 @@
       },
       methods: {
           async register() {
-              // Here we use the axios module imported in the nuxt.config.js file
-              await this.$axios.$post('register', this.form);
+              try {
+                  // Here we use the axios module imported in the nuxt.config.js file
+                  await this.$axios.$post('register', this.form);
 
-              // After registering, we login the user
-              await this.$auth.loginWith('local', {
-                  data: {
-                      email: this.form.email,
-                      password: this.form.password
-                  }
-              });
-
-              // redirect
-              this.$router.push('/');
-
+                  // After registering, we login the user
+                  await this.$auth.loginWith('local', {
+                      data: {
+                          email: this.form.email,
+                          password: this.form.password
+                      }
+                  });
+                  // After login we redirect to the homepage
+                  this.$router.push({ path: "/" })
+              } catch(e) {
+                  console.log('_____register error_____');
+                  console.log(e.response.data);
+                  console.log('_____register error_____');
+              }
+              // this.$router.push({ path: this.$route.query.redirect })
           }
       }
   }

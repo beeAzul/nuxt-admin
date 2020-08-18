@@ -2,6 +2,11 @@
   <div class="container col-md-6 mt-5">
     <h2>User Login</h2>
     <br>
+
+    <div class="alert alert-danger" role="alert" v-if="message">
+      {{message}}
+    </div>
+
     <form @submit.prevent="submit">
       <div class="form-group">
         <label>Email address</label>
@@ -22,6 +27,7 @@
 
 <script>
   export default {
+      middleware: ['guest'],
       data() {
           return {
               form: {
@@ -33,12 +39,19 @@
           async submit() {
               // we can use $auth cause we installed the auth package. It refer to the module section in nuxt.config.js file
               // 'local' to use local strategies. See strategies in nuxt.config.js in the module section
-              await this.$auth.loginWith("local", {
-                  data: this.form
-              });
+              try {
+                  await this.$auth.loginWith("local", {
+                      data: this.form
+                  });
 
-              // After login we push the user to the home page
-              // this.$router.push('/')
+                  // After login we push the user to the home page
+                  // this.$router.push({ path: "/" })
+              } catch (e) {
+                  console.log('_____login e_____');
+                  console.log(e.response.data);
+                  console.log('_____e_____');
+              }
+              // this.$router.push({ path: this.$route.path });
           }
       }
   }

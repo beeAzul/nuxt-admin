@@ -10,7 +10,8 @@ const Validation = {
     Vue.mixin({
       computed: {
         ...mapGetters({
-            errors: "validation/errors" // refer to "store/validation"
+            errors: "validation/errors", // refer to "store/validation"
+            message: "validation/message", // refer to "store/validation"
         })
       }
     });

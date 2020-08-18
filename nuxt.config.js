@@ -60,13 +60,19 @@ export default {
   css: [
   ],
   /*
+   * Activation of middleware to the router
+   */
+  router: {
+    middleware: ['clearValidationErrors']
+  },
+  /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
     './plugins/mixins/user.js',
     './plugins/mixins/validation.js',
-    './plugins/axios.js',
+    './plugins/axios.js'
   ],
   /*
   ** Auto import components
@@ -100,7 +106,8 @@ export default {
         // autoFetchUser: true
       }
       // We can use other strategies like social login
-    }
+    },
+    resetOnError : false
   },
   /*
   ** Axios module configuration
