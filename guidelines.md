@@ -151,3 +151,13 @@ Errors will be stored in the store. To manage them, we create a store and a plug
 <pre>
 // see store/validation.js file
 </pre>
+
+#### 10 Creation of middleware  
+We create 2 middlewares:
+ - Middleware to clear error when page switching
+ - Middleware to protect page if user is not logged in
+ 
+#### 11 CRUD
+ - Creation of "Create topic" page;
+ - Applying Middleware "auth";
+see pages/dashboard

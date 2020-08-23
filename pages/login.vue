@@ -45,7 +45,7 @@
                   });
 
                   // After login we push the user to the home page
-                  // this.$router.push({ path: "/" })
+                  this.$router.push({ path: "/dashboard" })
               } catch (e) {
                   console.log('_____login e_____');
                   console.log(e.response.data);
