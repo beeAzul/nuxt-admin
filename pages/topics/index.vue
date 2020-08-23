@@ -4,7 +4,8 @@
     <hr>
     <div v-for="(topic, index) in topics" :key="index" class="bg-ligth mt-5 mb-5">
       <div>
-        <h3>{{topic.title}}</h3>
+        <!--    topics-id refer to the structure of folder '/pages/topics/_id'    -->
+        <h3><nuxt-link :to="{name: 'topics-id', params: {id: topic.id}}">{{topic.title}}</nuxt-link></h3>
         <p class="text-muted">{{topic.creater_at}} by {{topic.user.name}}</p>
         <div v-for="(content, index) in topic.posts" :key="index" class="ml-5 content">
           {{content.body}}
@@ -33,9 +34,6 @@
         async asyncData({$axios}) {
             // wa take $axios from the contect variable
             let {data} = await $axios.get('/topics');
-            console.log('_____links_____');
-            console.log(data.links);
-            console.log('_____links_____');
 
             return {
                 topics: data.data,
