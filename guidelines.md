@@ -159,5 +159,6 @@ We create 2 middlewares:
  
 #### 11 CRUD
  - Creation of "Create topic" page;
- - Applying Middleware "auth";
-see pages/dashboard
+ - Applying Middleware "auth". see pages/dashboard;
+ - Creation of edit topic page and show page;
+ 

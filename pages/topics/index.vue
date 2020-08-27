@@ -16,10 +16,10 @@
           </div>
         </div>
 
-        <p class="text-muted">{{topic.creater_at}} by {{topic.user.name}}</p>
-        <div v-for="(content, index) in topic.posts" :key="index" class="ml-5 content">
-          {{content.body}}
-          <p class="text-muted">{{content.created_at}} by {{content.user.name}}</p>
+        <p class="text-muted">{{topic.created_at}} by {{topic.user.name}}</p>
+        <div v-for="(post, index) in topic.posts" :key="index" class="ml-5 content">
+          {{post.body}}
+          <p class="text-muted">{{post.created_at}} by {{post.user.name}}</p>
         </div>
       </div>
     </div>
